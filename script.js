@@ -1,3 +1,4 @@
+
 const GetAllSoldiers = () => {
     const soldiers = JSON.parse(localStorage.getItem("soldiers"))
     return soldiers
@@ -13,7 +14,7 @@ const AddSoldier = () => {
 
     const soldier = {
         fullName: fullName.value,
-        missionTime: missionTime.value,
+        missionLength: missionTime.value,
         platoon: platoon.value,
         position: position.value,
         rank: rank.value,
@@ -53,17 +54,27 @@ const CreateSoldier = (soldier) => {
     const remove = document.createElement("div")
     remove.className = "action"
     remove.textContent = "Remove"
+    remove.addEventListener("click", () => {
+        DeleteSoldier(soldier)
+        PrintSoldiers()
+    })
 
     
     const edit = document.createElement("div")
     edit.className = "action"
     edit.textContent = "Edit"
+    edit.addEventListener("click", () => {
+        GoToEditSection(soldier)
+    })
     
     actionsDiv.appendChild(remove)
     if (soldier.status !== "Retired"){
         const mission = document.createElement("div")
         mission.className = "action"
         mission.textContent = "Mission"
+        mission.addEventListener("click", () => {
+            ActivateMission(mission, soldier.missionLength)
+        })
         actionsDiv.appendChild(mission)
     }
     actionsDiv.appendChild(edit)
@@ -118,7 +129,27 @@ const PrintSoldiers = () => {
 
 PrintSoldiers()
 
-const deleteSoldier = (soldier) => {
+const DeleteSoldier = (soldier) => {
     const soldiers = GetAllSoldiers()
-    const newSoldiers = 
+    const newSoldiers = soldiers.filter(sold => sold.fullName !== soldier.fullName)
+    SaveSoldiers(newSoldiers)
+}
+
+const ActivateMission = (missionBtn, time) => {
+    missionBtn.textContent = time
+}
+
+const GoToEditSection = (soldier) => {
+    const main = document.querySelector(".main")
+    const update = document.querySelector(".update")
+    main.style.display = "none"
+    update.style.display = "block"
+    const [fullName, rank, position, platoon, missionTime] = document.querySelectorAll("input")
+    const status = document.querySelector("#statusUpdate")
+    fullName.value = soldier.fullName
+    rank.value = soldier.rank
+    position.value = soldier.position
+    platoon.value = soldier.platoon
+    missionTime.value = soldier.missionLength
+    status.value = soldier.status
 }
