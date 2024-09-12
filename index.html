@@ -1,11 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Soldiers</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
+
 <body>
-    
+    <!-- main section -->
+    <div class="main">
+        <h1>BATTALION FORCE MANAGEMENT</h1>
+        <hr>
+        <div class="outsideForm">
+            <form class="form" onsubmit="AddSoldier()">
+                <input type="text" placeholder="Full Name" required>
+                <input type="text" placeholder="Rank" required>
+                <input type="text" placeholder="Position" required>
+                <input type="text" placeholder="Platoon" required>
+                <input type="number" placeholder="Mission Time (seconds)" required>
+                <select id="status">
+                    <option value="Active">Active</option>
+                    <option value="Reserve">Reserve</option>
+                    <option value="Retired">Retired</option>
+                </select>
+                <input type="submit" value="Add Personnel">
+            </form>
+        </div>
+        <h1>FORCES OVERVIEW</h1>
+        <hr>
+        <table>
+            <tr>
+                <th>
+                    <div class="action">Full Name ↓</div>
+                </th>
+                <th>RANK</th>
+                <th>POSITION</th>
+                <th>PLATON</th>
+                <th>STATUS</th>
+                <th>ACTIONS</th>
+            </tr>
+            
+            <tr>
+                <td>Peter</td>
+                <td>Griffin</td>
+                <td>Griffin</td>
+                <td>Griffin</td>
+                <td>Griffin</td>
+                <td>
+                    <div class="actions">
+                        <div class="action">dh</div>
+                        <div class="action">dh</div>
+                        <div class="action">dh</div>
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+
+    <!-- update section -->
+    <div class="update">
+        <h1>BATTALION FORCE MANAGEMENT</h1>
+        <hr>
+        <div class="outsideForm">
+            <form class="form">
+                <input type="text" placeholder="Full Name" required>
+                <input type="text" placeholder="Rank" required>
+                <input type="text" placeholder="Position" required>
+                <input type="text" placeholder="Platoon" required>
+                <input type="number" placeholder="Mission Time (seconds)" required>
+                <select>
+                    <option value="Active">Active</option>
+                    <option value="Reserve">Reserve</option>
+                    <option value="Retired">Retired</option>
+                </select>
+                <input type="submit" value="Add Personnel">
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>
