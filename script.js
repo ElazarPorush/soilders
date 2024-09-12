@@ -144,7 +144,7 @@ const GoToEditSection = (soldier) => {
     const update = document.querySelector(".update")
     main.style.display = "none"
     update.style.display = "block"
-    const [fullName, rank, position, platoon, missionTime] = document.querySelectorAll("input")
+    const [fullName, rank, position, platoon, missionTime] = document.querySelectorAll("#form input")
     const status = document.querySelector("#statusUpdate")
     fullName.value = soldier.fullName
     rank.value = soldier.rank
